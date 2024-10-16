@@ -27,7 +27,8 @@ const pool = new Pool({
 //   // port: process.env.PG_PORT,
 // });
 const corsOptions = {
-  origin: "https://note-project-client.vercel.app",
+  origin:
+    "https://note-project-client-q9xydc4ed-devins-projects-c76af60f.vercel.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
