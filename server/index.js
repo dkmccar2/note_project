@@ -26,6 +26,9 @@ const port = 4000;
 
 app.use(cors(corsOptions)); //middleware
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Server Running");
+});
 
 app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
