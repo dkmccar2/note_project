@@ -44,8 +44,8 @@ app.get("/", (req, res) => {
 app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
   console.log("Get route activated");
-  const result = await sql("SELECT * FROM notes");
-  //const result = await pool.query("SELECT * FROM notes");
+  //const result = await sql("SELECT * FROM notes");
+  const result = await pool.query("SELECT * FROM notes");
   if (result) {
     console.log("Existing notes loaded from db");
   }
@@ -58,14 +58,14 @@ app.post("/addnote", async (req, res) => {
 
   const title = req.body.title;
   const content = req.body.content;
-  const result = await sql(
+  // const result = await sql(
+  //   `INSERT INTO notes (title, content) VALUES ($1, $2) RETURNING id`,
+  //   [title, content]
+  // );
+  const result = await pool.query(
     `INSERT INTO notes (title, content) VALUES ($1, $2) RETURNING id`,
     [title, content]
   );
-  // const result = await pool.query(
-  //   `INSERT INTO notes (title, content) VALUES ($1, $2) RETURNING id`,
-  //  [title, content]
-  // );
   const idReturn = result.rows[0].id;
   console.log("Returning id " + result.rows[0].id);
 
@@ -82,8 +82,8 @@ app.delete("/deletenote/:id", async (req, res) => {
   const data = req.body;
 
   console.log("Deleting note with id: " + id);
-  const result = await sql(`DELETE FROM notes WHERE id = ${id}`);
-  //const result = await pool.query(`DELETE FROM notes WHERE id = ${id}`);
+  // const result = await sql(`DELETE FROM notes WHERE id = ${id}`);
+  const result = await pool.query(`DELETE FROM notes WHERE id = ${id}`);
 
   if (result) {
     console.log("Note successfully deleted");
