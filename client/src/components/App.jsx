@@ -10,7 +10,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/getnotes")
+      .get(
+        "https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/getnotes"
+      )
       .then((res) => res.data)
       .then((data) => {
         setNotes(data);
@@ -23,10 +25,13 @@ function App() {
     let id;
     try {
       await axios
-        .post("http://localhost:4000/addnote", {
-          title: newNote.title,
-          content: newNote.content,
-        })
+        .post(
+          "https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/addnote",
+          {
+            title: newNote.title,
+            content: newNote.content,
+          }
+        )
         .then((res) => {
           console.log(res);
           // console.log(res.data);
@@ -51,10 +56,14 @@ function App() {
     console.log("Deleting note with id: " + id);
 
     try {
-      axios.delete(`http://localhost:4000/deletenote/${id}`).then((res) => {
-        console.log(res);
-        console.log(res.data);
-      });
+      axios
+        .delete(
+          `https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/deletenote/${id}`
+        )
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
     } catch (error) {}
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
