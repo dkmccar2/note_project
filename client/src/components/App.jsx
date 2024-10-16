@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "https://wwww.note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/getnotes",
+        "https://www.note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/getnotes",
         {
           withCredentials: true, // Ensures credentials like cookies are included
         }
