@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
   res.send("Server Running");
 });
 
-app.get("/api/getnotes", async (req, res) => {
+app.get("/getnotes", async (req, res) => {
   console.log("<------------------------>");
   console.log("Get route activated");
   //const result = await sql("SELECT * FROM notes");
@@ -53,7 +53,7 @@ app.get("/api/getnotes", async (req, res) => {
   res.send(result.rows);
 });
 
-app.post("/api/addnote", async (req, res) => {
+app.post("/addnote", async (req, res) => {
   console.log("<------------------------>");
   console.log("Post route activated");
 
@@ -76,7 +76,7 @@ app.post("/api/addnote", async (req, res) => {
   res.json(idReturn);
 });
 
-app.delete("/api/deletenote/:id", async (req, res) => {
+app.delete("/deletenote/:id", async (req, res) => {
   console.log("<------------------------>");
   console.log("Delete route activated");
   const id = parseInt(req.params.id);

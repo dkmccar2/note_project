@@ -11,7 +11,10 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/getnotes"
+        "https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/getnotes",
+        {
+          withCredentials: true, // Ensures credentials like cookies are included
+        }
       )
       .then((res) => res.data)
       .then((data) => {
@@ -30,6 +33,12 @@ function App() {
           {
             title: newNote.title,
             content: newNote.content,
+          },
+          {
+            withCredentials: true, // Ensures cookies or credentials are sent with the request
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
         )
         .then((res) => {
@@ -58,7 +67,13 @@ function App() {
     try {
       axios
         .delete(
-          `https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/deletenote/${id}`
+          `https://note-project-mpin0rodk-devins-projects-c76af60f.vercel.app/deletenote/${id}`,
+          {
+            withCredentials: true, // Ensures credentials like cookies are sent
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         )
         .then((res) => {
           console.log(res);
