@@ -7,6 +7,9 @@ import { sql } from "@vercel/postgres";
 env.config();
 
 const { Pool } = pg;
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL,
+});
 // const pool = new Pool({
 //   //env variables
 //   user: process.env.PG_USER,
@@ -15,14 +18,14 @@ const { Pool } = pg;
 //   password: process.env.PG_PASSWORD,
 //   port: process.env.PG_PORT,
 // });
-const pool = new Pool({
-  //env variables
-  user: process.env.POSTGRES_USER,
-  host: process.env.POSTGRES_HOST,
-  database: process.env.POSTGRES_DATABASE,
-  password: process.env.POSTGRES_PASSWORD,
-  // port: process.env.PG_PORT,
-});
+// const pool = new Pool({
+//   //env variables
+//   user: process.env.POSTGRES_USER,
+//   host: process.env.POSTGRES_HOST,
+//   database: process.env.POSTGRES_DATABASE,
+//   password: process.env.POSTGRES_PASSWORD,
+//   // port: process.env.PG_PORT,
+// });
 const corsOptions = {
   origin: "https://note-project-client.vercel.app",
   credentials: true, //access-control-allow-credentials:true
