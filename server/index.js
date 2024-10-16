@@ -28,7 +28,7 @@ const pool = new Pool({
 // });
 const corsOptions = {
   origin:
-    "https://note-project-client-q9xydc4ed-devins-projects-c76af60f.vercel.app",
+    "https://www.note-project-client-q9xydc4ed-devins-projects-c76af60f.vercel.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
