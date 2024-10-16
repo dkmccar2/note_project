@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import pg from "pg";
 import env from "dotenv";
-import { sql } from "@vercel/postgres";
+//import { sql } from "@vercel/postgres";
 //import env.development.local from "dotenv";
 env.config();
 
